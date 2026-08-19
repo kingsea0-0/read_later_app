@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Hoard — Save for Later",
+  "version": "1.0.0",
+  "description": "One-click save any page to your Hoard reading list",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://localhost:8080/*",
+    "https://api.hoard.app/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Save to Hoard"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:5173/*", "https://hoard.app/*"],
+      "js": ["content-hoard.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

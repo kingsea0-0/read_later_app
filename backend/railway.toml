@@ -1,0 +1,6 @@
+[build]
+  builder = "DOCKERFILE"
+  dockerfile_path = "Dockerfile"
+
+[deploy]
+  startCommand = "./hoard-server"
