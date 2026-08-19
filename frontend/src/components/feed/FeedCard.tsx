@@ -1,18 +1,6 @@
 import { ExternalLink, Play, BookOpen, MessageCircle, Image } from 'lucide-react'
 import type { Bookmark } from '../../lib/mockData'
-
-function getTimeAgo(dateStr: string): string {
-  const now = Date.now()
-  const then = new Date(dateStr).getTime()
-  const diff = now - then
-  const mins = Math.floor(diff / 60000)
-  if (mins < 60) return `${mins}m`
-  const hours = Math.floor(diff / 60)
-  if (hours < 24) return `${hours}h`
-  const days = Math.floor(diff / 24)
-  if (days < 30) return `${days}d`
-  return `${Math.floor(days / 30)}mo`
-}
+import { getTimeAgo } from '../../lib/time'
 
 const typeConfig = {
   video: { icon: Play, label: 'Video', color: 'text-red-500', bg: 'bg-red-50' },
